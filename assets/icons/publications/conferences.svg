@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96.18 96.14">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #254d62;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-3 {
+        stroke-width: 3px;
+      }
+
+      .cls-4 {
+        fill: #264d62;
+      }
+
+      .cls-2 {
+        stroke: #1d1d1b;
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        stroke: #575756;
+      }
+
+      .cls-5 {
+        fill: #575756;
+      }
+    </style>
+  </defs>
+  <g id="Logos">
+    <g id="Conferences">
+      <g>
+        <path class="cls-3" d="M50.77,1.5c11.21.65,21.81,5.33,29.85,13.16,8.04,7.84,12.99,18.32,13.93,29.5"/>
+        <path class="cls-1" d="M94.68,49.75c-.42,11.58-5.13,22.6-13.22,30.9s-18.99,13.29-30.56,14"/>
+        <path class="cls-3" d="M45.25,94.65c-11.33-.68-22.04-5.48-30.09-13.49C7.11,73.15,2.25,62.48,1.5,51.15"/>
+        <path class="cls-1" d="M1.5,45.09c.72-11.27,5.51-21.89,13.47-29.9C22.92,7.18,33.52,2.33,44.78,1.53"/>
+      </g>
+      <g>
+        <rect class="cls-5" x="17.05" y="56.93" width="62.09" height="12.19"/>
+        <polygon class="cls-5" points="72.49 79.26 23.81 79.26 20.03 69.12 76.15 69.12 72.49 79.26"/>
+        <g>
+          <path class="cls-5" d="M43.83,23.54h9.26c5.14,0,9.31,4.17,9.31,9.31v7.89h-28.63v-7.15c0-5.55,4.5-10.05,10.05-10.05Z"/>
+          <circle class="cls-5" cx="48.09" cy="15.11" r="6.59"/>
+        </g>
+        <g>
+          <rect class="cls-4" x="13.23" y="44.16" width="69.73" height="8.7"/>
+          <line class="cls-2" x1="23.43" y1="35.8" x2="23.69" y2="44.38"/>
+          <line class="cls-2" x1="20.6" y1="38.91" x2="29.37" y2="29.29"/>
+          <line class="cls-2" x1="72.96" y1="35.59" x2="72.71" y2="44.16"/>
+          <line class="cls-2" x1="75.79" y1="38.7" x2="67.02" y2="29.07"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

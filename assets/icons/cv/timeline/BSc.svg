@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 31.92 32.64">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #fff;
+        stroke-width: .29px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-4, .cls-5 {
+        fill: #254f64;
+      }
+
+      .cls-2 {
+        stroke: #254f64;
+      }
+
+      .cls-2, .cls-3 {
+        fill: none;
+        stroke-width: .88px;
+      }
+
+      .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        stroke: #575756;
+      }
+
+      .cls-7 {
+        fill: #4c5151;
+      }
+
+      .cls-8 {
+        filter: url(#drop-shadow-1);
+      }
+
+      .cls-9 {
+        fill: #1d1d1b;
+        font-family: BernardMT-Condensed, 'Bernard MT Condensed';
+        font-size: 3.6px;
+        letter-spacing: .01em;
+      }
+
+      .cls-5 {
+        opacity: .7;
+      }
+    </style>
+    <filter id="drop-shadow-1" x="0" y="0" width="31.92" height="32.64" filterUnits="userSpaceOnUse">
+      <feOffset dx="3.33" dy="3.33"/>
+      <feGaussianBlur result="blur" stdDeviation="1.66"/>
+      <feFlood flood-color="#1e1e1d" flood-opacity=".8"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="HorizontalTimeline">
+    <g id="Academic">
+      <g id="BSc">
+        <g id="BSc-2" data-name="BSc">
+          <g class="cls-8">
+            <ellipse class="cls-6" cx="12.56" cy="12.92" rx="10.71" ry="11.18"/>
+          </g>
+          <g id="Education">
+            <g>
+              <path class="cls-3" d="M13.18,1.74c2.58.16,5.01,1.28,6.86,3.16s2.99,4.4,3.2,7.08"/>
+              <path class="cls-2" d="M23.28,13.32c-.1,2.78-1.18,5.42-3.04,7.42s-4.37,3.19-7.02,3.36"/>
+              <path class="cls-3" d="M11.91,24.1c-2.61-.16-5.07-1.32-6.92-3.24s-2.97-4.48-3.14-7.2"/>
+              <path class="cls-2" d="M1.85,12.21c.17-2.7,1.27-5.25,3.1-7.18s4.27-3.09,6.85-3.28"/>
+            </g>
+            <g>
+              <g>
+                <g>
+                  <path class="cls-4" d="M3.73,14.39h0l.46-1.24h0c2.95-.77,5.64.72,7.19,2.49.05.05.09.11.14.16.5.59.85,1.45.84,1.53h0c-1.08-1.42-3.29-4.28-8.63-2.94Z"/>
+                  <path class="cls-5" d="M12.33,16.51h0c-1.11-1.52-3.11-4.52-8.12-3.74h0v-1.26h0c4.61-.41,6.89,1.92,8.12,4.99"/>
+                  <path class="cls-7" d="M12.37,18.44l-1.08-.5c-2.16-.93-6.15-.79-7.66.25v-3.02h0c1.65-1.07,5.85-.83,7.75,1.75"/>
+                </g>
+                <g>
+                  <path class="cls-4" d="M21.39,14.39h0l-.46-1.24h0c-2.95-.77-5.64.72-7.19,2.49-.05.05-.09.11-.14.16-.5.59-.85,1.45-.84,1.53h0c1.08-1.42,3.29-4.28,8.63-2.94Z"/>
+                  <path class="cls-5" d="M12.8,16.51h0c1.11-1.52,3.11-4.52,8.12-3.74h0v-1.26h0c-4.61-.41-6.89,1.92-8.12,4.99"/>
+                  <path class="cls-7" d="M12.76,18.44l1.08-.5c2.16-.93,6.15-.79,7.66.25v-1.84s0-1.17,0-1.17h0c-1.65-1.07-5.85-.83-7.75,1.75"/>
+                </g>
+                <path class="cls-7" d="M12.47,18.49h0c.57,0,1.03-.48,1.03-1.07h0c0-.59-.46-1.07-1.03-1.07h0c-.57,0-1.03.48-1.03,1.07h0c0,.59.46,1.07,1.03,1.07Z"/>
+              </g>
+              <g>
+                <path class="cls-7" d="M12.47,10.95l-4.66-1.76v-.03s.05,1.61.05,1.61h0c1.73.15,3.31,1.27,4.62,2.23h0c1.3-.96,2.89-2.08,4.62-2.23h0s.05-1.61.05-1.61v.03s-4.66,1.76-4.66,1.76"/>
+                <g>
+                  <polygon class="cls-1" points="6.89 12.88 5.97 12.88 5.36 16.66 7.44 16.66 6.89 12.88"/>
+                  <rect class="cls-1" x="6.09" y="7.75" width=".61" height="4.28"/>
+                  <rect class="cls-1" x="6.09" y="12.17" width=".61" height=".64"/>
+                </g>
+                <polyline class="cls-4" points="12.48 10.54 4.74 7.77 12.48 4.96 20.16 7.77"/>
+              </g>
+            </g>
+          </g>
+          <text class="cls-9" transform="translate(7.5 21.73) scale(2.12 1)"><tspan x="0" y="0">BSc</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
