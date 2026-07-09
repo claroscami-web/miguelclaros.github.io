@@ -4,7 +4,7 @@ TIMELINE SCALE
 ====================================================
 */
 const timelineStart = new Date("2009-09-01");
-const timelineEnd = new Date("2026-06-30");
+const timelineEnd = new Date("2026-07-01");
 
 const timelineSegments = [
     {
@@ -27,7 +27,7 @@ const timelineSegments = [
     },
     {
         realStart: new Date("2023-01-01"),
-        realEnd: new Date("2026-06-30"),
+        realEnd: new Date("2026-07-01"),
         visualStart: 70,
         visualEnd: 100
     }
@@ -93,10 +93,10 @@ const publicationEvents = publications.map(pub => ({
 
     type: "publication",
     number: pub.number,
-    date: pub.timelineDate,
-    dateValue: pub.dateValue,
+    date: pub.dateValue,
+    dateValue: pub.timelineDate,
     title: pub.timelineTitle || pub.title,
-    subtitle: pub.topics?.[0] || "",
+    subtitle: pub.topic?.[0] || pub.topics?.[0] || "",
     description: pub.citation,
     publicationId: pub.id,
 
@@ -174,7 +174,7 @@ const cvEvents = [
         side: "top",
     },
     {
-        date: "07/2015 - 12/2015",
+        date: "03/2021 - 12/2022",
         dateValue: "2021-03-01",
         title: "University of Valladolid",
         subtitle: "Postdoctoral Researcher",
@@ -182,7 +182,7 @@ const cvEvents = [
         side: "top",
     },
         {
-        date: "07/2015 - 12/2015",
+        date: "01/2023 - 06/2026",
         dateValue: "2023-01-01",
         title: "University of Amsterdam",
         subtitle: "Postdoctoral Researcher",
@@ -387,7 +387,7 @@ GENERATE CV TIMELINE
 const timeline = document.getElementById("cv-timeline");
 
 const years = [
-    2010, 2012, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026
+    2010, 2012, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027
 ];
 
 years.forEach(year => {

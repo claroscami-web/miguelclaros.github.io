@@ -28,17 +28,42 @@ const publications = [
 
     {
         type: "article",
+        number: 13,
+        year: 2026,
+        dateValue: "Jun 2026",
+        timelineDate: "2026-06-28",
+        title: "Autonomous Control of Polymer Upcycling with a Self-Driving Laboratory",
+        authors: "M. Vanzella, O. Bayley R. S. van der Hurk, E. Savino, M. Claros, R. Feringa, R. A. H. Peters, M. Barhoum, T. den Hartog, A. F. G. Gargano, B. W. J. Pirok and T. Noël*",
+        journal: "ChemRxiv",
+        citation: "2026",
+        volume: "",
+        pages: "",
+        doi: "10.26434/chemrxiv.15005284/v1",
+
+        id: "ChemRxiv2026",
+        timelineTitle: "Robochem-Polymer Upcycling",
+
+        topic: [
+            "Photochemistry",
+            "Automation",
+            "Self-Driving Labs",
+            "Green Chemistry",
+            "Polymer Chemistry",
+        ],
+    },
+    {
+        type: "article",
         number: 12,
         year: 2026,
         dateValue: "Jun 2026",
         timelineDate: "2026-06-13",
         title: "Redefining Synthetic Efficiency: Chemical and Technological Shortcuts",
-        authors: "J. Djossou, M. Claros, O. Bailey and T. Noël*",
+        authors: "J. Djossou, M. Claros, O. Bayley and T. Noël*",
         journal: "Chem",
-        citation: "",
-        volume: "",
+        citation: "2026, 12(7), 103139",
+        volume: "12(7)",
         pages: "",
-        doi: "",
+        doi: "10.1016/j.chempr.2026.103139",
 
         id: "Chem2026",
         timelineTitle: "Chemical and Technological Shortcuts",
@@ -83,7 +108,7 @@ const publications = [
         dateValue: "Apr 2026",
         timelineDate: "2026-04-27",
         title: "A Flexible and Affordable Self-Driving Laboratory for Automated Reaction Optimization",
-        authors: "S. Pilon‡, E. Savino‡, O. Bailey‡, M. Vanzella, M. Claros, P. Siasiaridis, J. Liu, F. Lukas, M. Damian, V. Tseliou, N. Intini, A. Slattery, J. Orduna, T. den Hartog, R. Peters, A. Gargano, F. Mutti and T. Noël*",
+        authors: "S. Pilon‡, E. Savino‡, O. Bayley‡, M. Vanzella, M. Claros, P. Siasiaridis, J. Liu, F. Lukas, M. Damian, V. Tseliou, N. Intini, A. Slattery, J. Orduna, T. den Hartog, R. Peters, A. Gargano, F. Mutti and T. Noël*",
         journal: "Nat. Synth.",
         citation: "2026",
         volume: "",
@@ -765,3 +790,4 @@ if (conferencesContainer) {
 }
 
 
+// TEST MIGUEL 123
