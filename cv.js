@@ -216,6 +216,17 @@ const cvEvents = [
         type: "research",
         side: "top",
     },
+    {
+        // Back to UVa. No institution logo yet (period too short to fit one);
+        // add it to cvInstitutions once the stay is long enough (profileLink:
+        // https://portaldelaciencia.uva.es/investigadores/181946/detalle).
+        date: "11/2026 - present",
+        dateValue: "2026-11-01",
+        title: "University of Valladolid",
+        subtitle: "UVa-Postdoctoral Researcher (competitive five-year contract)",
+        type: "research",
+        side: "top",
+    },
     /*
     ====================================================
     Titles
