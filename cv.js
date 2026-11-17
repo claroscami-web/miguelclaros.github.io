@@ -3,8 +3,10 @@
 TIMELINE SCALE
 ====================================================
 */
+// To extend the timeline (e.g. new year or new position):
+// change realEnd of the LAST segment below, and add the new year to `years`.
 const timelineStart = new Date("2009-09-01");
-const timelineEnd = new Date("2026-07-01");
+const timelineEnd = new Date("2026-12-31");
 
 const timelineSegments = [
     {
@@ -27,7 +29,7 @@ const timelineSegments = [
     },
     {
         realStart: new Date("2023-01-01"),
-        realEnd: new Date("2026-07-01"),
+        realEnd: new Date("2026-12-31"),
         visualStart: 70,
         visualEnd: 100
     }
@@ -36,7 +38,24 @@ const timelineSegments = [
 function getTimelinePosition(dateString) {
     const date = new Date(dateString);
 
-    for (const segment of timelineSegments){
+    // Unreadable date: warn in the browser console instead of failing silently.
+    if (isNaN(date)) {
+        console.warn("Timeline: invalid date", dateString);
+        return 0;
+    }
+
+    const first = timelineSegments[0];
+    const last = timelineSegments[timelineSegments.length - 1];
+
+    // Before the start / after the end: stick to the edges.
+    if (date < first.realStart) return first.visualStart;
+    if (date > last.realEnd) {
+        console.warn("Timeline: date after the end, extend the last segment", dateString);
+        return last.visualEnd;
+    }
+
+    for (let i = 0; i < timelineSegments.length; i++) {
+        const segment = timelineSegments[i];
 
         if (date >= segment.realStart && date <= segment.realEnd){
 
@@ -47,6 +66,14 @@ function getTimelinePosition(dateString) {
 
             return segment.visualStart +
                    fraction * (segment.visualEnd - segment.visualStart);
+        }
+
+        // Date falls in the gap between this segment and the next one.
+        const next = timelineSegments[i + 1];
+        if (next && date > segment.realEnd && date < next.realStart) {
+            const fraction = (date - segment.realEnd) / (next.realStart - segment.realEnd);
+            return segment.visualEnd +
+                   fraction * (next.visualStart - segment.visualEnd);
         }
     }
 
@@ -93,10 +120,10 @@ const publicationEvents = publications.map(pub => ({
 
     type: "publication",
     number: pub.number,
-    date: pub.dateValue,
-    dateValue: pub.timelineDate,
+    date: pub.timelineDate,
+    dateValue: pub.dateValue,
     title: pub.timelineTitle || pub.title,
-    subtitle: pub.topic?.[0] || pub.topics?.[0] || "",
+    subtitle: pub.topics?.[0] || "",
     description: pub.citation,
     publicationId: pub.id,
 
@@ -387,7 +414,7 @@ GENERATE CV TIMELINE
 const timeline = document.getElementById("cv-timeline");
 
 const years = [
-    2010, 2012, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027
+    2010, 2012, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026
 ];
 
 years.forEach(year => {

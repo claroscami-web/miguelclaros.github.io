@@ -1,6 +1,6 @@
 
 //Publications Miguel
-// Date: 13-06-2026
+// Date: 17-11-2026
 
 /*
 ====================================================
@@ -30,15 +30,15 @@ const publications = [
         type: "article",
         number: 13,
         year: 2026,
-        dateValue: "Jun 2026",
-        timelineDate: "2026-06-28",
+        dateValue: "2026-06-28",
+        timelineDate: "Jun 2026",
         title: "Autonomous Control of Polymer Upcycling with a Self-Driving Laboratory",
         authors: "M. Vanzella, O. Bayley R. S. van der Hurk, E. Savino, M. Claros, R. Feringa, R. A. H. Peters, M. Barhoum, T. den Hartog, A. F. G. Gargano, B. W. J. Pirok and T. Noël*",
         journal: "ChemRxiv",
         citation: "2026",
         volume: "",
         pages: "",
-        doi: "10.26434/chemrxiv.15005284/v1",
+        doi: "10.26434/chemrxiv.15005284/",
 
         id: "ChemRxiv2026",
         timelineTitle: "Robochem-Polymer Upcycling",
@@ -55,15 +55,15 @@ const publications = [
         type: "article",
         number: 12,
         year: 2026,
-        dateValue: "Jun 2026",
-        timelineDate: "2026-06-13",
+        dateValue: "2026-06-13",
+        timelineDate: "Jun 2026",
         title: "Redefining Synthetic Efficiency: Chemical and Technological Shortcuts",
-        authors: "J. Djossou, M. Claros, O. Bayley and T. Noël*",
+        authors: "J. Djossou, M. Claros, O. Bailey and T. Noël*",
         journal: "Chem",
-        citation: "2026, 12(7), 103139",
-        volume: "12(7)",
+        citation: "",
+        volume: "",
         pages: "",
-        doi: "10.1016/j.chempr.2026.103139",
+        doi: "",
 
         id: "Chem2026",
         timelineTitle: "Chemical and Technological Shortcuts",
@@ -79,15 +79,15 @@ const publications = [
         type: "article",
         number: 11,
         year: 2026,
-        dateValue: "Dec 2025",
-        timelineDate: "2025-12-14",
+        dateValue: "2026-10-19",
+        timelineDate: "Oct 2026",
         title: "Closed-Loop Photoreactor Design Enabled by Machine Learning and Digital Twins",
         authors: "J. H. A. Schuurmans‡, M. Claros‡, E. Savino, F. Lukas, A. Slattery and T. Noël*",
-        journal: "ChemRxiv",
-        citation: "2025, s7b3k",
+        journal: "Nat. Commun.",
+        citation: "Nat. Commun., 2026",
         volume: "",
-        pages: "s7b3k",
-        doi: "10.26434/chemrxiv-2025-s7b3k",
+        pages: "",
+        doi: "10.1038/s41467-026-78785-2",
 
         id: "ChemRxiv2025",
         timelineTitle: "Photoreactor Design",
@@ -105,10 +105,10 @@ const publications = [
         type: "article",
         number: 10,
         year: 2026,
-        dateValue: "Apr 2026",
-        timelineDate: "2026-04-27",
+        dateValue: "2026-04-27",
+        timelineDate: "Apr 2026",
         title: "A Flexible and Affordable Self-Driving Laboratory for Automated Reaction Optimization",
-        authors: "S. Pilon‡, E. Savino‡, O. Bayley‡, M. Vanzella, M. Claros, P. Siasiaridis, J. Liu, F. Lukas, M. Damian, V. Tseliou, N. Intini, A. Slattery, J. Orduna, T. den Hartog, R. Peters, A. Gargano, F. Mutti and T. Noël*",
+        authors: "S. Pilon‡, E. Savino‡, O. Bailey‡, M. Vanzella, M. Claros, P. Siasiaridis, J. Liu, F. Lukas, M. Damian, V. Tseliou, N. Intini, A. Slattery, J. Orduna, T. den Hartog, R. Peters, A. Gargano, F. Mutti and T. Noël*",
         journal: "Nat. Synth.",
         citation: "2026",
         volume: "",
@@ -132,8 +132,8 @@ const publications = [
         type: "article",
         number: 9,
         year: 2025,
-        dateValue: "Jun 2025",
-        timelineDate: "2025-06-03",
+        dateValue: "2025-06-03",
+        timelineDate: "Jun 2025",
         title: "Design and Application of a Decatungstate-based Ionic Liquid Photocatalyst for Sustainable Hydrogen Atom Transfer Reactions",
         authors: "M. Claros, J. Quévarec, S. Fernández-García and T.Noel*",
         journal: "Green. Chem.",
@@ -156,8 +156,8 @@ const publications = [
         type: "article",
         number: 8,
         year: 2025,
-        dateValue: "Jan 2025",
-        timelineDate: "2025-01-06",
+        dateValue: "2025-01-06",
+        timelineDate: "Jan 2025",
         title: "Interaction of Light with Gas–Liquid Interfaces: Influence on Photon Absorption in Continuous-Flow Photoreactors",
         authors: "J.H. A. Schuurmans, S. D. A. Zondag, A. Chaudhuri, M. Claros, J. van der Schaaf, and T.Noel*",
         journal: "React. Chem. Eng.",
@@ -179,8 +179,8 @@ const publications = [
         type: "article",
         number: 7,
         year: 2024,
-        dateValue: "Nov 2024",
-        timelineDate: "2024-11-08",
+        dateValue: "2024-11-08",
+        timelineDate: "Nov 2024",
         title: "Light-assisted Carbon Dioxide Reduction in an Automated Photoreactor System Coupled to Carbonylation Chemistry",
         authors: "J. H. A. Schuurmans‡, T. M. Masson‡, S. D. A. Zondag‡, S. Pilon, N. Bragato, M. Claros, T. den Hartog, F. Sastre, J. van den Ham, P. Buskens, G. Fiorani and T. Noel*",
         journal: "Chem. Sci.",
@@ -206,8 +206,8 @@ const publications = [
         type: "article",
         number: 6,
         year: 2023,
-        dateValue: "Oct 2023",
-        timelineDate: "2023-10-19",
+        dateValue: "2023-10-19",
+        timelineDate: "Oct 2023",
         title: "Palladium Catalysts Supported in Microporous Phosphine Polymer Networks",
         authors: "N. Esteban, M. Claros, C. Álvarez, A. E. Lozano, C. Bartolomé*, J. M. de Ilarduya, J. A. Miguel*",
         journal: "Polymers",
@@ -230,8 +230,8 @@ const publications = [
         type: "article",
         number: 5,
         year: 2020,
-        dateValue: "Mar 2020",
-        timelineDate: "2020-03-25",
+        dateValue: "2020-03-25",
+        timelineDate: "Mar 2020",
         title: "The Synergy between the CsPbBr3 Nanoparticle Surface and the Organic Ligand Becomes Manifest in a Demanding Carbon–Carbon Coupling Reaction",
         authors: "I. Rosa-Pardo, C. Casadevall, L. Schmidt, M. Claros, R. E. Galian, J. Lloret-Fillol* and J. Pérez-Prieto*",
         journal: "Chem. Commun.",
@@ -244,7 +244,7 @@ const publications = [
         timelineTitle: "Perovskites Photocatalysis",
 
         topic: [
-            "Photochemsitry",
+            "Photochemistry",
             "Organometallic Chemistry",
             "Catalyst Design",
             "Catalysis"
@@ -254,8 +254,8 @@ const publications = [
         type: "article",
         number: 4,
         year: 2020,
-        dateValue: "Feb 2020",
-        timelineDate: "2020-02-23",
+        dateValue: "2020-02-23",
+        timelineDate: "Feb 2020",
         title: "Asymmetric Transfer Hydrogenation of Arylketones Catalyzed by Enantiopure Ruthenium(II)/Pybox Complexes Containing Achiral Phosphonite and Phosphinite Ligands",
         authors: "M. Claros, E. de Julián, J. Díez, E. Lastra and P. Gamasa*",
         journal: "Molecules",
@@ -268,7 +268,7 @@ const publications = [
         timelineTitle: "Ru-Pybox Hydrogenation of Ketones",
 
         topic: [
-            "Photochemsitry",
+            "Photochemistry",
             "Organometallic Chemistry",
             "Catalyst Design",
             "Catalysis"
@@ -279,8 +279,8 @@ const publications = [
         type: "article",
         number: 3,
         year: 2019,
-        dateValue: "Jul 2019",
-        timelineDate: "2019-07-17",
+        dateValue: "2019-07-17",
+        timelineDate: "Jul 2019",
         title: "Visible-Light Reductive Cyclization of Nonactivated Alkyl Chlorides",
         authors: "M. Claros, A. Casitas*, J. Lloret-Fillol*",
         journal: "Synlett",
@@ -290,10 +290,10 @@ const publications = [
         doi: "10.1055/s-0037-1611878",
 
         id: "Synlett2019",
-        timelineTitle: "Reductive Cyclizations oc Alk-Cl",
+        timelineTitle: "Reductive Cyclizations of Alk-Cl",
 
         topic: [
-            "Photochemsitry",
+            "Photochemistry",
             "Organometallic Chemistry",
             "Catalyst Design",
             "Catalysis"
@@ -317,7 +317,7 @@ const publications = [
         timelineTitle: "Vis-Light Reductive Cyclizations",
 
         topic: [
-            "Photochemsitry",
+            "Photochemistry",
             "Organometallic Chemistry",
             "Catalyst Design",
             "Reactor Design",
@@ -448,6 +448,15 @@ const conferences = [
         abstract: "assets/publications/abstractsConferences/Abstract_BarluengaConference2025_MiguelClaros.pdf"
     },
 ];
+
+// Totals shown in the summary line above the selected conference contributions.
+// The list above shows only a selection, so these counts are kept by hand:
+// add 1 to the matching number each time you present at a conference.
+// Invited lectures are counted automatically from the invitedLectures list below.
+const conferenceTotals = {
+    oral: 9,
+    poster: 11,
+};
 
 const invitedLectures = [
      {
@@ -689,12 +698,15 @@ const conferencesContainer =
 
 if (conferencesContainer) {
 
-    // Summary + selected title
+    // Summary + selected title (numbers come from conferenceTotals + invitedLectures)
+    const nInvited = invitedLectures.length;
+    const nTotal = conferenceTotals.oral + conferenceTotals.poster + nInvited;
+
     conferencesContainer.insertAdjacentHTML(
         "beforeend",
         `
         <div class="conference-summary">
-            21 National and International conferences: 9 Oral Communications · 11 Posters · 1 Invited Lecture
+            ${nTotal} National and International conferences: ${conferenceTotals.oral} Oral Communications · ${conferenceTotals.poster} Posters · ${nInvited} Invited Lecture${nInvited === 1 ? "" : "s"}
         </div>
 
         <div class="conference-selected">
@@ -790,4 +802,3 @@ if (conferencesContainer) {
 }
 
 
-// TEST MIGUEL 123
