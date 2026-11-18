@@ -490,7 +490,7 @@ TOPIC FILTERS FOR JOURNAL ARTICLES
 Each button groups several "topic" tags. An article appears under a
 filter if it has at least one of the filter's topics.
   label : text on the button
-  icon  : optional path to a small icon, e.g. "assets/icons/filters/flow.svg"
+  icon  : optional path to a small icon, e.g. "assets/icons/publications/filters/flow.svg"
           (leave "" until the icons are ready)
   topics: the topic tags (exactly as written in each article) that belong here
 To split Catalysis later: replace the "catalysis" entry by two entries
@@ -502,26 +502,29 @@ const publicationFilters = [
     {
         id: "photochemistry",
         label: "Photochemistry",
-        icon: "",
+        icon: "assets/icons/publications/filters/photochemistry_1.svg",
         topics: ["Photochemistry", "Photocatalysis"],
     },
     {
         id: "catalysis",
         label: "Catalysis",
-        icon: "",
+        // Temporary single Catalysis filter. When the articles are tagged as
+        // "Homogeneous Catalysis" / "Heterogeneous Catalysis", split it in two and use
+        // assets/icons/publications/filters/homogeneous_catalysis.svg and assets/icons/publications/filters/heterogeneous_catalysis.svg
+        icon: "assets/icons/publications/filters/homogeneous_catalysis.svg",
         topics: ["Catalysis", "Catalyst Design", "Organometallic Chemistry",
                  "Supported Catalysis", "Enantioselective Catalysis"],
     },
     {
         id: "flow",
         label: "Flow Chemistry",
-        icon: "",
+        icon: "assets/icons/publications/filters/flow.svg",
         topics: ["Flow Chemistry", "Reactor Design", "Chemical Engineering"],
     },
     {
         id: "automation",
         label: "Automation",
-        icon: "",
+        icon: "assets/icons/publications/filters/automation_1.svg",
         topics: ["Automation", "Self-Driving Labs"],
     },
 ];
@@ -671,7 +674,7 @@ each article and shows/hides articles (and empty year headings).
         const n = f.id === "all"
             ? publications.length
             : publications.filter(p => groupsOf(p).includes(f.id)).length;
-        const icon = f.icon ? `<img src="${f.icon}" alt="" class="filter-icon">` : "";
+        const icon = f.icon ? `<img src="${f.icon}" alt="" class="filter-icon" width="34" height="34" loading="lazy">` : "";
         const active = f.id === "all" ? " active" : "";
         return `<button type="button" class="filter-btn${active}" data-filter="${f.id}" aria-pressed="${f.id === "all"}">`
              + `${icon}<span>${f.label}</span><span class="filter-count">${n}</span></button>`;

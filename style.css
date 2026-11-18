@@ -1570,7 +1570,9 @@ a.project-website {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 16px;
+    padding: 4px 16px;
+    min-height: 44px;
+    box-sizing: border-box;
     border: 1.5px solid var(--color-primary);
     border-radius: 999px;
     background: #fff;
@@ -1602,9 +1604,11 @@ a.project-website {
 }
 
 .filter-icon {
-    width: 28px;
-    height: 28px;
-    margin-left: -8px;
+    width: 34px;
+    height: 34px;
+    margin-left: -10px;   /* icon sits close to the rounded left edge */
+    border-radius: 50%;
+    background: #fff;     /* keeps the icon readable on the blue active button */
 }
 
 .pub-tags {
