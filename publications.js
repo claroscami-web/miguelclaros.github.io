@@ -35,10 +35,10 @@ const publications = [
         title: "Closed-Loop Photoreactor Design Enabled by Machine Learning and Digital Twins",
         authors: "J. H. A. Schuurmans‡, M. Claros‡, E. Savino, F. Lukas, A. Slattery and T. Noël*",
         journal: "Nat. Commun.",
-        citation: "Nat. Commun., 2026",
-        volume: "",
+        citation: "Nat. Commun., 2026, 17, 11762",
+        volume: "17",
         issue: "",
-        pages: "",
+        pages: "11762",
         doi: "10.1038/s41467-026-78785-2",
 
         id: "ChemRxiv2025",

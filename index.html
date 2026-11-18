@@ -4,10 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miguel Claros</title>
-
+    <title>Miguel Claros | Postdoctoral Researcher in Sustainable Chemistry</title>
+    <meta name="description" content="Postdoctoral researcher at the University of Valladolid working on photochemistry, catalysis, flow chemistry and lab automation for sustainable chemistry.">
+    <meta name="author" content="Miguel Claros">
+    <link rel="canonical" href="https://claroscami-web.github.io/miguelclaros.github.io/">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/svg" href="assets/mc.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/mc.svg">
+
+    <!-- Link preview (LinkedIn, WhatsApp, Facebook, email...) -->
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Miguel Claros">
+    <meta property="og:title" content="Miguel Claros | Postdoctoral Researcher in Sustainable Chemistry">
+    <meta property="og:description" content="Postdoctoral researcher at the University of Valladolid working on photochemistry, catalysis, flow chemistry and lab automation for sustainable chemistry.">
+    <meta property="og:url" content="https://claroscami-web.github.io/miguelclaros.github.io/">
+    <meta property="og:image" content="https://claroscami-web.github.io/miguelclaros.github.io/assets/images/og-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Portrait of Miguel Claros">
+    <meta property="og:locale" content="en_GB">
+    <meta property="profile:first_name" content="Miguel">
+    <meta property="profile:last_name" content="Claros">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Miguel Claros | Postdoctoral Researcher in Sustainable Chemistry">
+    <meta name="twitter:description" content="Postdoctoral researcher at the University of Valladolid working on photochemistry, catalysis, flow chemistry and lab automation for sustainable chemistry.">
+    <meta name="twitter:image" content="https://claroscami-web.github.io/miguelclaros.github.io/assets/images/og-preview.jpg">
+
+    <!-- Structured data for Google (who you are, where you work, your profiles) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Miguel Claros",
+        "url": "https://claroscami-web.github.io/miguelclaros.github.io/",
+        "image": "https://claroscami-web.github.io/miguelclaros.github.io/assets/images/og-preview.jpg",
+        "jobTitle": "Postdoctoral Researcher",
+        "affiliation": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Valladolid",
+            "url": "https://www.uva.es"
+        },
+        "email": "mailto:clarosca.mi@gmail.com",
+        "knowsAbout": ["Photochemistry", "Catalysis", "Flow chemistry", "Laboratory automation", "Self-driving laboratories", "Sustainable chemistry"],
+        "sameAs": [
+            "https://orcid.org/0000-0001-8396-0928",
+            "https://www.linkedin.com/in/miguel-claros-254142279/",
+            "https://scholar.google.com/citations?user=dWovCuwAAAAJ",
+            "https://www.webofscience.com/wos/author/record/AAX-9429-2020"
+        ]
+    }
+    </script>
     
 </head>
 
@@ -140,8 +185,16 @@
                     </div>
                 </div>    
                 
-                <div class="profile-photo">
-                    <img src="assets/images/MiguelClaros.webp" alt="Miguel Claros">
+                <div class="right-column">
+                    <div class="profile-photo">
+                        <img src="assets/images/MiguelClaros.webp" alt="Miguel Claros">
+                    </div>
+
+                    <!-- Latest news: the items are in news.js -->
+                    <div class="news-box">
+                        <h3 class="news-title">Latest News</h3>
+                        <ul id="news-list" class="news-list"></ul>
+                    </div>
                 </div>
 
             </section>
@@ -1933,6 +1986,7 @@
 <script src="research.js"></script>
 <script src="projects.js"></script>
 <script src="teaching.js"></script>
+<script src="news.js"></script>
 <script src="navigation.js"></script>
 
 
