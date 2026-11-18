@@ -1677,7 +1677,7 @@ a.project-website {
     color: var(--color-primary);
     margin-top: 5rem;
     margin-bottom: 1.2rem;
-    scroll-margin-top: 80px;
+    scroll-margin-top: 110px;   /* compact header is ~93 px tall: keeps the title and its icon visible */
 }
 
 .publication-subtitle:first-of-type {

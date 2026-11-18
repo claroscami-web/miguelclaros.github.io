@@ -700,9 +700,19 @@ each article and shows/hides articles (and empty year headings).
         });
     }
 
+    // After filtering, go back to the "Journal Articles" title (same smooth jump and
+    // header offset as the menu links, via scroll-margin-top in style.css), so the
+    // reader always sees the start of the filtered list.
+    function goToArticlesTop() {
+        const title = document.getElementById("journal-articles");
+        if (title) title.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
     bar.addEventListener("click", e => {
         const b = e.target.closest(".filter-btn");
-        if (b) applyFilter(b.dataset.filter);
+        if (!b) return;
+        applyFilter(b.dataset.filter);
+        goToArticlesTop();
     });
 
     // Clicking a small tag under an article applies that filter.
@@ -710,7 +720,7 @@ each article and shows/hides articles (and empty year headings).
         const t = e.target.closest(".pub-tag");
         if (!t) return;
         applyFilter(t.dataset.filter);
-        bar.scrollIntoView({ behavior: "smooth", block: "center" });
+        goToArticlesTop();
     });
 
     // Links to an article (from Research, Projects or News) still work when
