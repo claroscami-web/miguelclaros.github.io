@@ -1556,6 +1556,85 @@ a.project-website {
 }
 
 
+/* 10.1b Topic filters (buttons above Journal Articles; built in publications.js)
+------------------------------------------------ */
+
+.publication-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0.8rem 0 1.4rem;
+}
+
+.filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border: 1.5px solid var(--color-primary);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--color-primary);
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.filter-btn:hover {
+    background: rgba(33, 79, 104, 0.08);
+}
+
+.filter-btn.active {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.filter-count {
+    font-size: 0.85em;
+    padding: 0 7px;
+    border-radius: 999px;
+    background: rgba(33, 79, 104, 0.1);
+}
+
+.filter-btn.active .filter-count {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.filter-icon {
+    width: 28px;
+    height: 28px;
+    margin-left: -8px;
+}
+
+.pub-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 0.4rem;
+}
+
+.pub-tag {
+    padding: 1px 10px;
+    border: none;
+    border-radius: 999px;
+    background: rgba(33, 79, 104, 0.08);
+    color: var(--color-primary);
+    font-family: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.pub-tag:hover {
+    background: rgba(33, 79, 104, 0.16);
+}
+
+.publication-item[hidden],
+.publication-year[hidden] {
+    display: none !important;
+}
+
+
 /* 10.2 Publication Navigation
 ------------------------------------------------ */
 

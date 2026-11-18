@@ -485,6 +485,49 @@ const invitedLectures = [
 
 /*
 ====================================================
+TOPIC FILTERS FOR JOURNAL ARTICLES
+====================================================
+Each button groups several "topic" tags. An article appears under a
+filter if it has at least one of the filter's topics.
+  label : text on the button
+  icon  : optional path to a small icon, e.g. "assets/icons/filters/flow.svg"
+          (leave "" until the icons are ready)
+  topics: the topic tags (exactly as written in each article) that belong here
+To split Catalysis later: replace the "catalysis" entry by two entries
+(e.g. "Homogeneous Catalysis" / "Heterogeneous Catalysis") and add those
+tags to the articles.
+*/
+
+const publicationFilters = [
+    {
+        id: "photochemistry",
+        label: "Photochemistry",
+        icon: "",
+        topics: ["Photochemistry", "Photocatalysis"],
+    },
+    {
+        id: "catalysis",
+        label: "Catalysis",
+        icon: "",
+        topics: ["Catalysis", "Catalyst Design", "Organometallic Chemistry",
+                 "Supported Catalysis", "Enantioselective Catalysis"],
+    },
+    {
+        id: "flow",
+        label: "Flow Chemistry",
+        icon: "",
+        topics: ["Flow Chemistry", "Reactor Design", "Chemical Engineering"],
+    },
+    {
+        id: "automation",
+        label: "Automation",
+        icon: "",
+        topics: ["Automation", "Self-Driving Labs"],
+    },
+];
+
+/*
+====================================================
 FIND THE PUBLICATIONS CONTAINER IN THE HTML
 ====================================================
 */
@@ -586,6 +629,97 @@ CREATE PUBLICATION ITEM
     // Add the publication to the publications list in the HTML.
     list.appendChild(item);
 });
+
+/*
+====================================================
+TOPIC FILTERS (buttons above Journal Articles)
+====================================================
+Builds the buttons from publicationFilters, adds small topic tags under
+each article and shows/hides articles (and empty year headings).
+*/
+
+(function buildPublicationFilters() {
+
+    const bar = document.getElementById("publication-filters");
+    if (!bar || !list) return;
+
+    const groupsOf = pub =>
+        publicationFilters
+            .filter(f => (pub.topic || []).some(t => f.topics.includes(t)))
+            .map(f => f.id);
+
+    // Mark each article with its groups and add the small tags under it.
+    publications.forEach(pub => {
+        const item = document.getElementById(pub.id);
+        if (!item) return;
+        const groups = groupsOf(pub);
+        item.dataset.groups = groups.join(" ");
+        if (groups.length) {
+            const tags = document.createElement("div");
+            tags.classList.add("pub-tags");
+            tags.innerHTML = groups.map(id => {
+                const f = publicationFilters.find(x => x.id === id);
+                return `<button type="button" class="pub-tag" data-filter="${id}">${f.label}</button>`;
+            }).join("");
+            item.appendChild(tags);
+        }
+    });
+
+    // Buttons: "All" + one per filter, with the number of articles.
+    const allButtons = [{ id: "all", label: "All", icon: "" }, ...publicationFilters];
+    bar.innerHTML = allButtons.map(f => {
+        const n = f.id === "all"
+            ? publications.length
+            : publications.filter(p => groupsOf(p).includes(f.id)).length;
+        const icon = f.icon ? `<img src="${f.icon}" alt="" class="filter-icon">` : "";
+        const active = f.id === "all" ? " active" : "";
+        return `<button type="button" class="filter-btn${active}" data-filter="${f.id}" aria-pressed="${f.id === "all"}">`
+             + `${icon}<span>${f.label}</span><span class="filter-count">${n}</span></button>`;
+    }).join("");
+
+    function applyFilter(id) {
+        bar.querySelectorAll(".filter-btn").forEach(b => {
+            const on = b.dataset.filter === id;
+            b.classList.toggle("active", on);
+            b.setAttribute("aria-pressed", on);
+        });
+        list.querySelectorAll(".publication-item").forEach(item => {
+            item.hidden = !(id === "all" || (item.dataset.groups || "").split(" ").includes(id));
+        });
+        // Hide a year heading when none of its articles is visible.
+        list.querySelectorAll(".publication-year").forEach(h => {
+            let el = h.nextElementSibling, anyVisible = false;
+            while (el && !el.classList.contains("publication-year")) {
+                if (!el.hidden) anyVisible = true;
+                el = el.nextElementSibling;
+            }
+            h.hidden = !anyVisible;
+        });
+    }
+
+    bar.addEventListener("click", e => {
+        const b = e.target.closest(".filter-btn");
+        if (b) applyFilter(b.dataset.filter);
+    });
+
+    // Clicking a small tag under an article applies that filter.
+    list.addEventListener("click", e => {
+        const t = e.target.closest(".pub-tag");
+        if (!t) return;
+        applyFilter(t.dataset.filter);
+        bar.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    // Links to an article (from Research, Projects or News) still work when
+    // a filter is hiding it: the filter is reset to "All" first.
+    document.addEventListener("click", e => {
+        const a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+        const target = document.getElementById(a.getAttribute("href").slice(1));
+        if (target && target.hidden && list.contains(target)) applyFilter("all");
+    }, true);
+
+})();
 
 /*
 ====================================================
