@@ -214,7 +214,7 @@ const publications = [
         timelineTitle: "Palladium POP Catalysts",
 
         topic: [
-            "Catalysis",
+            "Heterogeneous Catalysis",
         ],
     },
     {
@@ -259,7 +259,7 @@ const publications = [
         timelineTitle: "Ru-Pybox Hydrogenation of Ketones",
 
         topic: [
-            "Catalysis",
+            "Homogeneous Catalysis",
         ],
 
     },
@@ -329,7 +329,7 @@ const publications = [
         timelineTitle: "Ru-Pybox Hydrogenation",
 
         topic: [
-            "Catalysis",
+            "Homogeneous Catalysis",
         ],
         
     },
@@ -491,8 +491,27 @@ const publicationFilters = [
         // "Homogeneous Catalysis" / "Heterogeneous Catalysis", split it in two and use
         // assets/icons/publications/filters/homogeneous_catalysis.svg and assets/icons/publications/filters/heterogeneous_catalysis.svg
         icon: "assets/icons/publications/filters/homogeneous_catalysis.svg",
-        topics: ["Catalysis"],
+        // "Homogeneous Catalysis" / "Heterogeneous Catalysis" also count as Catalysis for now;
+        // the timeline shows the exact name when it is an article's main topic.
+        topics: ["Catalysis", "Homogeneous Catalysis", "Heterogeneous Catalysis"],
     },
+    /* READY TO SPLIT CATALYSIS: replace the "catalysis" entry above by these two.
+       Before that, give every article with plain "Catalysis" one of the two names.
+    {
+        id: "homogeneous",
+        researchPanel: "catalysis-panel",
+        label: "Homogeneous Catalysis",
+        icon: "assets/icons/publications/filters/homogeneous_catalysis.svg",
+        topics: ["Homogeneous Catalysis"],
+    },
+    {
+        id: "heterogeneous",
+        researchPanel: "catalysis-panel",
+        label: "Heterogeneous Catalysis",
+        icon: "assets/icons/publications/filters/heterogeneous_catalysis.svg",
+        topics: ["Heterogeneous Catalysis"],
+    },
+    */
     {
         id: "flow",
         researchPanel: "flow-panel",
