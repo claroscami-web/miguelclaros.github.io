@@ -2159,6 +2159,7 @@ a.project-website {
 }
 
 .timeline-item.bottom .timeline-card {
+    top: auto;      /* height follows the content (with top and bottom set, it was fixed at 75 px and long text overflowed) */
     bottom: 40px;
 }
 

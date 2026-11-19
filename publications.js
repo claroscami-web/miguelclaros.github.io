@@ -46,7 +46,6 @@ const publications = [
 
         topic: [
             "Automation",
-            "Self-Driving Labs",
             "Photochemistry",
             "Catalysis",
         ],
@@ -67,11 +66,11 @@ const publications = [
         doi: "10.1016/j.chempr.2026.103139",
 
         id: "Chem2026",
+        review: true,   // listed under "Reviews & Book Chapters" in Research
         timelineTitle: "Chemical and Technological Shortcuts",
 
         topic: [
             "Automation",
-            "Self-Driving Labs",
             "Flow Chemistry",
             "Catalysis",
         ],
@@ -96,10 +95,7 @@ const publications = [
 
         topic: [
             "Automation",
-            "Self-Driving Labs",
             "Photochemistry",
-            "Green Chemistry",
-            "Polymer Chemistry",
         ],
     },
     {
@@ -122,10 +118,7 @@ const publications = [
 
         topic: [
             "Automation",
-            "Self-Driving Labs",
             "Flow Chemistry",
-            "Reactor Design",
-            "Chemical Engineering",
             "Photochemistry",
             "Catalysis",
         ],
@@ -152,7 +145,6 @@ const publications = [
             "Photochemistry",
             "Catalysis",
             "Flow Chemistry",
-            "Green Chemistry",
         ],
     },
     {
@@ -175,7 +167,6 @@ const publications = [
 
         topic: [
             "Flow Chemistry",
-            "Chemical Engineering",
             "Photochemistry",
         ],
     },
@@ -201,9 +192,6 @@ const publications = [
             "Photochemistry",
             "Flow Chemistry",
             "Automation",
-            "Reactor Design",
-            "Chemical Engineering",
-            "CO2 Valorization",
             "Catalysis",
         ],
     },
@@ -226,10 +214,7 @@ const publications = [
         timelineTitle: "Palladium POP Catalysts",
 
         topic: [
-            "Organometallic Chemistry",
-            "Catalyst Design",
-            "Supported Catalysis",
-            "Catalysis"
+            "Catalysis",
         ],
     },
     {
@@ -252,9 +237,7 @@ const publications = [
 
         topic: [
             "Photochemistry",
-            "Organometallic Chemistry",
-            "Catalyst Design",
-            "Catalysis"
+            "Catalysis",
         ],
     },
     {
@@ -276,8 +259,6 @@ const publications = [
         timelineTitle: "Ru-Pybox Hydrogenation of Ketones",
 
         topic: [
-            "Organometallic Chemistry",
-            "Catalyst Design",
             "Catalysis",
         ],
 
@@ -298,13 +279,12 @@ const publications = [
         doi: "10.1055/s-0037-1611878",
 
         id: "Synlett2019",
+        review: true,   // listed under "Reviews & Book Chapters" in Research
         timelineTitle: "Reductive Cyclizations of Alk-Cl",
 
         topic: [
             "Photochemistry",
-            "Organometallic Chemistry",
-            "Catalyst Design",
-            "Catalysis"
+            "Catalysis",
         ],
     },
     {
@@ -327,8 +307,6 @@ const publications = [
 
         topic: [
             "Photochemistry",
-            "Organometallic Chemistry",
-            "Catalyst Design",
             "Catalysis",
         ],
     },
@@ -351,10 +329,7 @@ const publications = [
         timelineTitle: "Ru-Pybox Hydrogenation",
 
         topic: [
-            "Organometallic Chemistry", 
-            "Enantioselective Catalysis",
-            "Catalyst Design",
-            "Catalysis"
+            "Catalysis",
         ],
         
     },
@@ -373,17 +348,16 @@ const bookChapters = [
         publisher: "Springer Handbooks",
         isbn: "978-3-030-63713-2",
         DOI: "10.1007/978-3-030-63713-2",
-        pages: "493-546",
+        pages: "493–546",
         isbn_link: "https://link.springer.com/chapter/10.1007/978-3-030-63713-2_20",
         
         id: "Springer2022",
+        short: "Springer",   // label in the Research "Related outputs"
         timelineTitle: "First-Row Transition Metal Photocatalysts",
 
         topic: [
-            "Photocatalysis",
-            "Organometallic Chemistry",
-            "Catalyst Design",
-            "Catalysis"
+            "Photochemistry",
+            "Catalysis",
         ],
     },
 ];
@@ -403,10 +377,8 @@ const patents = [
         timelineTitle: "Activation of organic chloride compounds",
 
         topic: [
-            "Photocatalysis",
-            "Organometallic Chemistry",
-            "Catalyst Design",
-            "Catalysis"
+            "Photochemistry",
+            "Catalysis",
         ],
     },
 ];
@@ -493,6 +465,11 @@ filter if it has at least one of the filter's topics.
           opening Publications with this filter (leave it out for no link)
 The small tags under each article follow the order of its "topic" list:
 put the main topic first.
+Since 19-11-2026 each article's "topic" only uses the filter names
+("Photochemistry", "Catalysis", "Flow Chemistry", "Automation"), so what you
+read in the list is exactly where the article appears. The same topics also
+fill the "Research Articles" and "Reviews & Book Chapters" of each Research
+panel (articles with review: true go under Reviews; conferences stay in index.html).
 To split Catalysis later: replace the "catalysis" entry by two entries
 (e.g. "Homogeneous Catalysis" / "Heterogeneous Catalysis") and add those
 tags to the articles.
@@ -504,7 +481,7 @@ const publicationFilters = [
         researchPanel: "photochemistry-panel",
         label: "Photochemistry",
         icon: "assets/icons/publications/filters/photochemistry_1.svg",
-        topics: ["Photochemistry", "Photocatalysis"],
+        topics: ["Photochemistry"],
     },
     {
         id: "catalysis",
@@ -514,22 +491,21 @@ const publicationFilters = [
         // "Homogeneous Catalysis" / "Heterogeneous Catalysis", split it in two and use
         // assets/icons/publications/filters/homogeneous_catalysis.svg and assets/icons/publications/filters/heterogeneous_catalysis.svg
         icon: "assets/icons/publications/filters/homogeneous_catalysis.svg",
-        topics: ["Catalysis", "Catalyst Design", "Organometallic Chemistry",
-                 "Supported Catalysis", "Enantioselective Catalysis"],
+        topics: ["Catalysis"],
     },
     {
         id: "flow",
         researchPanel: "flow-panel",
         label: "Flow Chemistry",
         icon: "assets/icons/publications/filters/flow.svg",
-        topics: ["Flow Chemistry", "Reactor Design", "Chemical Engineering"],
+        topics: ["Flow Chemistry"],
     },
     {
         id: "automation",
         researchPanel: "automation-panel",
         label: "Automation",
         icon: "assets/icons/publications/filters/automation_1.svg",
-        topics: ["Automation", "Self-Driving Labs"],
+        topics: ["Automation"],
     },
 ];
 
@@ -745,6 +721,29 @@ each article and shows/hides articles (and empty year headings).
         p.innerHTML = `<a href="#journal-articles" data-filter="${f.id}">${icon}`
                     + `<span>See all ${f.label} articles (${n}) &rarr;</span></a>`;
         panel.appendChild(p);
+    });
+
+    // "Related outputs" of each Research panel: the "Research Articles" and
+    // "Reviews & Book Chapters" lines are filled here from the topics, in the
+    // <div class="related-pubs"> placeholder of index.html.
+    document.querySelectorAll(".research-panel").forEach(panel => {
+        const box = panel.querySelector(".related-pubs");
+        if (!box) return;
+        const ids = publicationFilters.filter(f => f.researchPanel === panel.id).map(f => f.id);
+        const inPanel = p => groupsOf(p).some(g => ids.includes(g));
+        const byNumber = (a, b) => a.number - b.number;
+        const link = (id, n, label) => `<a href="#${id}">[${n}]</a> <em>${label}</em>`;
+        const line = (title, items) => items.length
+            ? `<p class="related-outputs-list"><strong>${title}</strong><br>${items.join(", ")}.</p>` : "";
+        const arts = publications.filter(inPanel).sort(byNumber);
+        const chapters = (typeof bookChapters !== "undefined" ? bookChapters : []).filter(inPanel).sort(byNumber);
+        box.innerHTML =
+            line("Research Articles", arts.filter(p => !p.review)
+                .map(p => link(p.id, p.number, `${p.journal} ${p.year}`)))
+          + line("Reviews &amp; Book Chapters", [
+                ...chapters.map(c => link(c.id, "BC" + c.number, `${c.short || c.publisher} ${c.year}`)),
+                ...arts.filter(p => p.review).map(p => link(p.id, p.number, `${p.journal} ${p.year}`)),
+            ]);
     });
 
     document.addEventListener("click", e => {

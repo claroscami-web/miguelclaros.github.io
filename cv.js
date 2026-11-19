@@ -116,6 +116,17 @@ const cvInstitutions = [
     },
 ]
 
+// Reference in the same format as the Publications section:
+// journal and volume in italics, year in bold, issue in brackets.
+function formatReference(pub) {
+    const parts = [];
+    if (pub.journal) parts.push(`<em>${pub.journal}</em>`);
+    if (pub.year) parts.push(`<strong>${pub.year}</strong>`);
+    if (pub.volume) parts.push(`<em>${pub.volume}</em>${pub.issue ? `(${pub.issue})` : ""}`);
+    if (pub.pages) parts.push(pub.pages);
+    return parts.join(", ");
+}
+
 const publicationEvents = publications.map(pub => ({
 
     type: "publication",
@@ -123,8 +134,8 @@ const publicationEvents = publications.map(pub => ({
     date: pub.timelineDate,
     dateValue: pub.dateValue,
     title: pub.timelineTitle || pub.title,
-    subtitle: pub.topics?.[0] || "",
-    description: pub.citation,
+    subtitle: (pub.topic || [])[0] || "",   // main topic (first one in publications.js)
+    description: formatReference(pub),
     publicationId: pub.id,
 
     side: "bottom",
@@ -145,7 +156,12 @@ const bookChapterEvents = bookChapters.map(book => ({
     dateValue: book.dateValue,
     title: book.timelineTitle || book.title,
     subtitle: "Book Chapter",
-    description: book.citation,
+    description: [
+        book.book && `<em>${book.book}</em>`,
+        book.publisher && `<em>${book.publisher}</em>`,
+        book.year && `<strong>${book.year}</strong>`,
+        book.pages,
+    ].filter(Boolean).join(", "),
     publicationId: book.id,
 
     side: "bottom",
