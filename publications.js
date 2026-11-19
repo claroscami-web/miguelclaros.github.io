@@ -192,7 +192,7 @@ const publications = [
             "Photochemistry",
             "Flow Chemistry",
             "Automation",
-            "Catalysis",
+            "Heterogeneous Catalysis",
         ],
     },
     {
@@ -237,7 +237,7 @@ const publications = [
 
         topic: [
             "Photochemistry",
-            "Catalysis",
+            "Heterogeneous Catalysis",
         ],
     },
     {
