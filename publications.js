@@ -489,6 +489,8 @@ filter if it has at least one of the filter's topics.
   icon  : optional path to a small icon, e.g. "assets/icons/publications/filters/flow.svg"
           (leave "" until the icons are ready)
   topics: the topic tags (exactly as written in each article) that belong here
+  researchPanel: id of the Research panel that gets a "See all ... articles" link
+          opening Publications with this filter (leave it out for no link)
 The small tags under each article follow the order of its "topic" list:
 put the main topic first.
 To split Catalysis later: replace the "catalysis" entry by two entries
@@ -499,12 +501,14 @@ tags to the articles.
 const publicationFilters = [
     {
         id: "photochemistry",
+        researchPanel: "photochemistry-panel",
         label: "Photochemistry",
         icon: "assets/icons/publications/filters/photochemistry_1.svg",
         topics: ["Photochemistry", "Photocatalysis"],
     },
     {
         id: "catalysis",
+        researchPanel: "catalysis-panel",
         label: "Catalysis",
         // Temporary single Catalysis filter. When the articles are tagged as
         // "Homogeneous Catalysis" / "Heterogeneous Catalysis", split it in two and use
@@ -515,12 +519,14 @@ const publicationFilters = [
     },
     {
         id: "flow",
+        researchPanel: "flow-panel",
         label: "Flow Chemistry",
         icon: "assets/icons/publications/filters/flow.svg",
         topics: ["Flow Chemistry", "Reactor Design", "Chemical Engineering"],
     },
     {
         id: "automation",
+        researchPanel: "automation-panel",
         label: "Automation",
         icon: "assets/icons/publications/filters/automation_1.svg",
         topics: ["Automation", "Self-Driving Labs"],
@@ -724,6 +730,28 @@ each article and shows/hides articles (and empty year headings).
         const t = e.target.closest(".pub-tag");
         if (!t) return;
         applyFilter(t.dataset.filter);
+        goToArticlesTop();
+    });
+
+    // "See all ... articles" link at the end of each Research panel: it opens
+    // Journal Articles with that panel's filter already applied.
+    publicationFilters.forEach(f => {
+        const panel = f.researchPanel && document.getElementById(f.researchPanel);
+        if (!panel) return;
+        const n = publications.filter(p => groupsOf(p).includes(f.id)).length;
+        const icon = f.icon ? `<img src="${f.icon}" alt="" width="28" height="28" loading="lazy">` : "";
+        const p = document.createElement("p");
+        p.classList.add("see-related");
+        p.innerHTML = `<a href="#journal-articles" data-filter="${f.id}">${icon}`
+                    + `<span>See all ${f.label} articles (${n}) &rarr;</span></a>`;
+        panel.appendChild(p);
+    });
+
+    document.addEventListener("click", e => {
+        const a = e.target.closest(".see-related a");
+        if (!a) return;
+        e.preventDefault();
+        applyFilter(a.dataset.filter);
         goToArticlesTop();
     });
 
