@@ -45,11 +45,9 @@ const publications = [
         timelineTitle: "Photoreactor Design",
 
         topic: [
-            "Photochemistry",
             "Automation",
             "Self-Driving Labs",
-            "Chemical Engineering",
-            "Reactor Design",
+            "Photochemistry",
             "Catalysis",
         ],
     },
@@ -72,9 +70,9 @@ const publications = [
         timelineTitle: "Chemical and Technological Shortcuts",
 
         topic: [
-            "Photochemistry",
             "Automation",
             "Self-Driving Labs",
+            "Flow Chemistry",
             "Catalysis",
         ],
     },
@@ -97,9 +95,9 @@ const publications = [
         timelineTitle: "Robochem-Polymer Upcycling",
 
         topic: [
-            "Photochemistry",
             "Automation",
             "Self-Driving Labs",
+            "Photochemistry",
             "Green Chemistry",
             "Polymer Chemistry",
         ],
@@ -123,12 +121,12 @@ const publications = [
         timelineTitle: "Robochem-Flex",
 
         topic: [
-            "Photochemistry",
-            "Flow Chemistry",
             "Automation",
             "Self-Driving Labs",
-            "Chemical Engineering",
+            "Flow Chemistry",
             "Reactor Design",
+            "Chemical Engineering",
+            "Photochemistry",
             "Catalysis",
         ],
     },
@@ -152,9 +150,9 @@ const publications = [
 
         topic: [
             "Photochemistry",
+            "Catalysis",
             "Flow Chemistry",
             "Green Chemistry",
-            "Catalysis"
         ],
     },
     {
@@ -176,9 +174,9 @@ const publications = [
         timelineTitle: "Interaction of Light with Gas–Liquid Interfaces",
 
         topic: [
-            "Photochemistry",
             "Flow Chemistry",
-            "Chemical Engineering"
+            "Chemical Engineering",
+            "Photochemistry",
         ],
     },
     {
@@ -204,9 +202,9 @@ const publications = [
             "Flow Chemistry",
             "Automation",
             "Reactor Design",
+            "Chemical Engineering",
             "CO2 Valorization",
             "Catalysis",
-            "Chemical Engineering"
         ],
     },
     {
@@ -278,10 +276,9 @@ const publications = [
         timelineTitle: "Ru-Pybox Hydrogenation of Ketones",
 
         topic: [
-            "Photochemistry",
             "Organometallic Chemistry",
             "Catalyst Design",
-            "Catalysis"
+            "Catalysis",
         ],
 
     },
@@ -332,8 +329,7 @@ const publications = [
             "Photochemistry",
             "Organometallic Chemistry",
             "Catalyst Design",
-            "Reactor Design",
-            "Catalysis"
+            "Catalysis",
         ],
     },
     {
@@ -493,6 +489,8 @@ filter if it has at least one of the filter's topics.
   icon  : optional path to a small icon, e.g. "assets/icons/publications/filters/flow.svg"
           (leave "" until the icons are ready)
   topics: the topic tags (exactly as written in each article) that belong here
+The small tags under each article follow the order of its "topic" list:
+put the main topic first.
 To split Catalysis later: replace the "catalysis" entry by two entries
 (e.g. "Homogeneous Catalysis" / "Heterogeneous Catalysis") and add those
 tags to the articles.
@@ -646,10 +644,16 @@ each article and shows/hides articles (and empty year headings).
     const bar = document.getElementById("publication-filters");
     if (!bar || !list) return;
 
-    const groupsOf = pub =>
-        publicationFilters
-            .filter(f => (pub.topic || []).some(t => f.topics.includes(t)))
-            .map(f => f.id);
+    // Groups of an article, in the order of its "topic" list: the first topic
+    // is the main one, so its tag appears first under the article.
+    const groupsOf = pub => {
+        const topics = pub.topic || [];
+        return publicationFilters
+            .map(f => ({ id: f.id, rank: topics.findIndex(t => f.topics.includes(t)) }))
+            .filter(g => g.rank >= 0)
+            .sort((a, b) => a.rank - b.rank)
+            .map(g => g.id);
+    };
 
     // Mark each article with its groups and add the small tags under it.
     publications.forEach(pub => {
