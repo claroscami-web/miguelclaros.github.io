@@ -47,7 +47,7 @@ const publications = [
         topic: [
             "Automation",
             "Photochemistry",
-            "Catalysis",
+            "Homogeneous Catalysis",
         ],
     },
     {
@@ -72,7 +72,7 @@ const publications = [
         topic: [
             "Automation",
             "Flow Chemistry",
-            "Catalysis",
+            "Homogeneous Catalysis",
         ],
     },
     {
@@ -120,7 +120,7 @@ const publications = [
             "Automation",
             "Flow Chemistry",
             "Photochemistry",
-            "Catalysis",
+            "Homogeneous Catalysis",
         ],
     },
     {
@@ -143,7 +143,7 @@ const publications = [
 
         topic: [
             "Photochemistry",
-            "Catalysis",
+            "Homogeneous Catalysis",
             "Flow Chemistry",
         ],
     },
@@ -284,7 +284,7 @@ const publications = [
 
         topic: [
             "Photochemistry",
-            "Catalysis",
+            "Homogeneous Catalysis",
         ],
     },
     {
@@ -307,7 +307,7 @@ const publications = [
 
         topic: [
             "Photochemistry",
-            "Catalysis",
+            "Homogeneous Catalysis",
         ],
     },
     {
@@ -357,7 +357,7 @@ const bookChapters = [
 
         topic: [
             "Photochemistry",
-            "Catalysis",
+            "Homogeneous Catalysis",
         ],
     },
 ];
@@ -378,7 +378,7 @@ const patents = [
 
         topic: [
             "Photochemistry",
-            "Catalysis",
+            "Homogeneous Catalysis",
         ],
     },
 ];
@@ -466,13 +466,13 @@ filter if it has at least one of the filter's topics.
 The small tags under each article follow the order of its "topic" list:
 put the main topic first.
 Since 19-11-2026 each article's "topic" only uses the filter names
-("Photochemistry", "Catalysis", "Flow Chemistry", "Automation"), so what you
+("Photochemistry", "Homogeneous Catalysis", "Heterogeneous Catalysis",
+"Flow Chemistry", "Automation"), so what you
 read in the list is exactly where the article appears. The same topics also
 fill the "Research Articles" and "Reviews & Book Chapters" of each Research
 panel (articles with review: true go under Reviews; conferences stay in index.html).
-To split Catalysis later: replace the "catalysis" entry by two entries
-(e.g. "Homogeneous Catalysis" / "Heterogeneous Catalysis") and add those
-tags to the articles.
+Catalysis was split into Homogeneous / Heterogeneous on 21-11-2026; both
+filters share the Catalysis panel of Research (it gets two "See all" links).
 */
 
 const publicationFilters = [
@@ -483,20 +483,6 @@ const publicationFilters = [
         icon: "assets/icons/publications/filters/photochemistry_1.svg",
         topics: ["Photochemistry"],
     },
-    {
-        id: "catalysis",
-        researchPanel: "catalysis-panel",
-        label: "Catalysis",
-        // Temporary single Catalysis filter. When the articles are tagged as
-        // "Homogeneous Catalysis" / "Heterogeneous Catalysis", split it in two and use
-        // assets/icons/publications/filters/homogeneous_catalysis.svg and assets/icons/publications/filters/heterogeneous_catalysis.svg
-        icon: "assets/icons/publications/filters/homogeneous_catalysis.svg",
-        // "Homogeneous Catalysis" / "Heterogeneous Catalysis" also count as Catalysis for now;
-        // the timeline shows the exact name when it is an article's main topic.
-        topics: ["Catalysis", "Homogeneous Catalysis", "Heterogeneous Catalysis"],
-    },
-    /* READY TO SPLIT CATALYSIS: replace the "catalysis" entry above by these two.
-       Before that, give every article with plain "Catalysis" one of the two names.
     {
         id: "homogeneous",
         researchPanel: "catalysis-panel",
@@ -511,7 +497,6 @@ const publicationFilters = [
         icon: "assets/icons/publications/filters/heterogeneous_catalysis.svg",
         topics: ["Heterogeneous Catalysis"],
     },
-    */
     {
         id: "flow",
         researchPanel: "flow-panel",

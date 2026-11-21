@@ -1562,7 +1562,7 @@ a.project-website {
 .publication-filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 6px;       /* 6 buttons with full names fit in one row (Georgia, 1512 px) */
     margin: 0.8rem 0 1.4rem;
 }
 
@@ -1570,7 +1570,7 @@ a.project-website {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 4px 16px;
+    padding: 4px 11px;
     min-height: 44px;
     box-sizing: border-box;
     border: 1.5px solid var(--color-primary);
@@ -1578,7 +1578,7 @@ a.project-website {
     background: #fff;
     color: var(--color-primary);
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
     transition: background var(--transition-fast), color var(--transition-fast);
 }
