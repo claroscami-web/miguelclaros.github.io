@@ -616,40 +616,102 @@ cvEvents.forEach(event => {
 });
 
 /*
-Vertical timeline on phones (style.css, section 15.10): when two icons on
-the same side are so close that they would cover each other, the second one
-is moved further out from the bar (class stagger-1, or stagger-2 if a third
-one is also close). These classes only have styles on phones, so the desktop
-timeline does not change.
+Icons too close together (desktop and phones): when two icons on the same
+side of the bar would cover each other, the second one is moved further
+away from the bar (one step, or two if a third one is also close).
+  - Desktop (horizontal timeline, 1200 px wide): class d-stagger-1, one step only
+    (style.css, section 12.2b; see staggerPairs below).
+  - Phones (vertical timeline, 1100 px tall): classes stagger-1 / stagger-2
+    (style.css, section 15.10).
+The positions and icon sizes below must match those in style.css.
 */
-const MOBILE_TIMELINE_HEIGHT = 1100;   // px; must match #cv-timeline height in section 15.10 of style.css
+const DESKTOP_TIMELINE_WIDTH = 1200;   // px; #cv-timeline width on desktop
+const MOBILE_TIMELINE_HEIGHT = 1100;   // px; #cv-timeline height in section 15.10 of style.css
 const MAX_ICON_OVERLAP = 6;            // px two icons may overlap without being moved
 
-function mobileIconHeight(item) {
+function iconSizes(item) {
     const icon = item.querySelector(".timeline-event-icon");
-    if (!icon) return 0;
-    return parseFloat(icon.style.width) >= 80 ? 52 : 36;   // same sizes as in style.css
+    if (!icon) return null;
+    const big = parseFloat(icon.style.width) >= 80;   // BSc, MSc, PhD
+    return {
+        desktop: big ? 54 : 46,   // visible width of the icon on desktop
+        mobile: big ? 52 : 36     // icon size on phones
+    };
 }
 
-["top", "bottom"].forEach(side => {
+function staggerIcons(side, length, sizeKey, classPrefix) {
 
     const items = [...timeline.querySelectorAll(`.timeline-item.${side}`)]
-        .filter(item => mobileIconHeight(item) > 0)
-        .map(item => ({
-            item,
-            y: parseFloat(item.style.getPropertyValue("--pos")) * MOBILE_TIMELINE_HEIGHT / 100,
-            h: mobileIconHeight(item)
+        .map(item => ({ item, sizes: iconSizes(item) }))
+        .filter(entry => entry.sizes)
+        .map(entry => ({
+            item: entry.item,
+            at: parseFloat(entry.item.style.getPropertyValue("--pos")) * length / 100,
+            size: entry.sizes[sizeKey]
         }))
-        .sort((a, b) => a.y - b.y);
+        .sort((a, b) => a.at - b.at);
 
     const placed = [[], [], []];   // icons already placed at each distance from the bar
 
     items.forEach(entry => {
         let level = placed.findIndex(row => row.every(other =>
-            Math.abs(entry.y - other.y) >= (entry.h + other.h) / 2 - MAX_ICON_OVERLAP
+            Math.abs(entry.at - other.at) >= (entry.size + other.size) / 2 - MAX_ICON_OVERLAP
         ));
         if (level === -1) level = placed.length - 1;
         placed[level].push(entry);
-        if (level > 0) entry.item.classList.add(`stagger-${level}`);
+        if (level > 0) entry.item.classList.add(`${classPrefix}-${level}`);
     });
+}
+
+/*
+Desktop: only one step (d-stagger-1), decided pair by pair, starting with the
+closest pair: of two icons that would cover each other, the later one goes
+one step out, unless that step is already taken there by another icon (then
+both stay at the bar and simply overlap a little). Example (Nov 2026):
+[11] and [12] are almost on top of each other, so [12] goes out; [10] and
+[13] stay at the same height as [11].
+*/
+function staggerPairs(side, length, sizeKey, className) {
+
+    const items = [...timeline.querySelectorAll(`.timeline-item.${side}`)]
+        .map(item => ({ item, sizes: iconSizes(item) }))
+        .filter(entry => entry.sizes)
+        .map(entry => ({
+            item: entry.item,
+            at: parseFloat(entry.item.style.getPropertyValue("--pos")) * length / 100,
+            size: entry.sizes[sizeKey],
+            level: null
+        }))
+        .sort((a, b) => a.at - b.at);
+
+    const tooClose = (a, b) => Math.abs(a.at - b.at) < (a.size + b.size) / 2 - MAX_ICON_OVERLAP;
+
+    const pairs = [];
+    items.forEach((a, i) => items.slice(i + 1).forEach(b => {
+        if (tooClose(a, b)) pairs.push([a, b]);
+    }));
+    pairs.sort((p, q) => Math.abs(p[0].at - p[1].at) - Math.abs(q[0].at - q[1].at));
+
+    const stepIsFree = entry => items.every(other =>
+        other === entry || other.level !== 1 || !tooClose(entry, other));
+
+    pairs.forEach(([a, b]) => {
+        if (a.level === null && b.level === null) {
+            a.level = 0;
+            b.level = stepIsFree(b) ? 1 : 0;
+        } else if (a.level === null) {
+            a.level = (b.level === 0 && stepIsFree(a)) ? 1 : 0;
+        } else if (b.level === null) {
+            b.level = (a.level === 0 && stepIsFree(b)) ? 1 : 0;
+        }
+    });
+
+    items.forEach(entry => {
+        if (entry.level === 1) entry.item.classList.add(className);
+    });
+}
+
+["top", "bottom"].forEach(side => {
+    staggerPairs(side, DESKTOP_TIMELINE_WIDTH, "desktop", "d-stagger-1");
+    staggerIcons(side, MOBILE_TIMELINE_HEIGHT, "mobile", "stagger");
 });

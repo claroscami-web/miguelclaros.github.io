@@ -2179,6 +2179,38 @@ a.project-website {
 }
 
 
+/* 12.2b Icons too close together (desktop)
+------------------------------------------------
+cv.js adds d-stagger-1 to an icon that would cover a nearby one on the
+same side; it is moved half an icon (24 px) away from the bar, so the icons
+overlap a little but both can be seen (the one under the mouse always comes
+to the front). To make room, the
+institutions sit 25 px higher and the timeline is a bit taller. Only on
+desktop; phones have their own version (section 15.10). */
+
+@media (min-width: 901px) {
+
+    #cv-timeline {
+        height: 310px;
+        margin-top: calc(var(--spacing-section) + 25px);
+    }
+
+    .timeline-institution {
+        top: -85px;
+    }
+
+    .institution-line {
+        top: -5px;
+        height: 155px;
+    }
+
+    .timeline-item.top.d-stagger-1::before    { height: 84px; }
+    .timeline-item.bottom.d-stagger-1::before { height: 64px; }
+
+    .timeline-item.top.d-stagger-1 .timeline-event-icon    { bottom: 64px; }
+    .timeline-item.bottom.d-stagger-1 .timeline-event-icon { top: 69px; }
+}
+
 /* 12.3 CV Summary & Highlights
 ------------------------------------------------ */
 
