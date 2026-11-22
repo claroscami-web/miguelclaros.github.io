@@ -119,7 +119,11 @@ window.addEventListener("scroll", () => {
     });
 
 
-    if (current === "home") {
+    // On phones the header is compacted as soon as the page scrolls a little,
+    // so it does not take half of the screen (desktop keeps the old rule).
+    const compactNow = isMobileLayout() ? window.scrollY > 40 : current !== "home";
+
+    if (!compactNow) {
         header.classList.remove("compact");
         document.body.classList.remove("compact-header");
     } else {
@@ -163,3 +167,68 @@ window.addEventListener("scroll", () => {
     });
 
 });
+
+
+/*
+====================================================
+MOBILE MENU (phones and tablets, up to 900 px)
+====================================================
+
+On small screens the sidebar is hidden and the
+button in the header (three lines) opens it as a
+drop-down menu. On desktop the button is hidden
+and none of this has any effect.
+
+*/
+
+const mobileQuery = window.matchMedia("(max-width: 900px)");
+const menuButton = document.querySelector(".menu-toggle");
+const sidebarMenu = document.querySelector(".sidebar");
+
+function isMobileLayout() {
+    return mobileQuery.matches;
+}
+
+// The menu opens just below the header, whatever its height.
+function placeMenu() {
+    document.documentElement.style.setProperty(
+        "--header-bottom",
+        header.getBoundingClientRect().bottom + "px"
+    );
+}
+
+function setMenu(open) {
+    if (open) placeMenu();
+    document.body.classList.toggle("menu-open", open);
+    menuButton.setAttribute("aria-expanded", open ? "true" : "false");
+    menuButton.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+}
+
+if (menuButton && sidebarMenu) {
+
+    menuButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setMenu(!document.body.classList.contains("menu-open"));
+    });
+
+    // Choosing a section closes the menu.
+    navLinks.forEach(link => link.addEventListener("click", () => setMenu(false)));
+
+    // Tapping outside the menu, or pressing Escape, closes it.
+    document.addEventListener("click", (e) => {
+        if (document.body.classList.contains("menu-open") && !sidebarMenu.contains(e.target)) {
+            setMenu(false);
+        }
+    });
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setMenu(false);
+    });
+
+    // Back to desktop size: make sure the menu is closed.
+    mobileQuery.addEventListener("change", () => setMenu(false));
+
+    // The header changes height when it becomes compact.
+    window.addEventListener("scroll", () => {
+        if (document.body.classList.contains("menu-open")) placeMenu();
+    });
+}

@@ -452,6 +452,7 @@ years.forEach(year => {
     const position = getTimelinePosition(`${year}-04-01`);
 
     marker.style.left = `${position}%`;
+    marker.style.setProperty("--pos", `${position}%`);   // used by the vertical (mobile) timeline
     marker.textContent = year;
 
     timeline.appendChild(marker);
@@ -483,6 +484,7 @@ cvInstitutions.forEach(institution => {
     const startLine = document.createElement("div");
     startLine.classList.add("institution-line");
     startLine.style.left = `${start}%`;
+    startLine.style.setProperty("--pos", `${start}%`);
 
     timeline.appendChild(startLine);
 
@@ -490,11 +492,13 @@ cvInstitutions.forEach(institution => {
     const endLine = document.createElement("div");
     endLine.classList.add("institution-line");
     endLine.style.left = `${end}%`;
+    endLine.style.setProperty("--pos", `${end}%`);
 
     timeline.appendChild(endLine);
 
     // Position the logo at that midpoint.
     logoBlock.style.left = `${center}%`;
+    logoBlock.style.setProperty("--pos", `${center}%`);
 
     const logoHTML = institution.profileLink
     ? `<a href="${institution.profileLink}"
@@ -528,6 +532,7 @@ cvEvents.forEach(event => {
 
     // Set the horizontal position.
     item.style.left = `${eventPosition}%`;
+    item.style.setProperty("--pos", `${eventPosition}%`);   // vertical (mobile) timeline: same value, used as top
 
     // If the event is close to the right edge,
     // move the info card inward.
