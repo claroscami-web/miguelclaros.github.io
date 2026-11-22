@@ -45,8 +45,8 @@ const publications = [
         timelineTitle: "Photoreactor Design",
 
         topic: [
-            "Automation",
             "Photochemistry",
+            "Automation",
             "Homogeneous Catalysis",
         ],
     },
@@ -70,9 +70,9 @@ const publications = [
         timelineTitle: "Chemical and Technological Shortcuts",
 
         topic: [
+            "Homogeneous Catalysis",
             "Automation",
             "Flow Chemistry",
-            "Homogeneous Catalysis",
         ],
     },
     {
@@ -91,7 +91,7 @@ const publications = [
         doi: "10.26434/chemrxiv.15005284",
 
         id: "ChemRxiv2026",
-        timelineTitle: "Robochem-Polymer Upcycling",
+        timelineTitle: "RoboChem-Polymer Upcycling",
 
         topic: [
             "Automation",
@@ -114,7 +114,7 @@ const publications = [
         doi: "10.1038/s44160-026-01053-0",
 
         id: "NatSynth2026",
-        timelineTitle: "Robochem-Flex",
+        timelineTitle: "RoboChem-Flex",
 
         topic: [
             "Automation",
@@ -166,8 +166,8 @@ const publications = [
         timelineTitle: "Interaction of Light with Gas–Liquid Interfaces",
 
         topic: [
-            "Flow Chemistry",
             "Photochemistry",
+            "Flow Chemistry",
         ],
     },
     {

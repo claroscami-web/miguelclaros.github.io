@@ -2225,6 +2225,35 @@ a.project-website {
     margin-bottom: 0;
 }
 
+/* "Download full CV (PDF)" button at the end of the Professional Summary */
+.cv-download {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+.cv-download-btn,
+.cv-download-btn:visited {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 8px 22px;
+    border-radius: 999px;
+    background: var(--color-primary);
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background var(--transition-fast);
+}
+
+.cv-download-btn:hover,
+.cv-download-btn:focus-visible {
+    background: var(--color-primary-hover);
+    color: #fff;
+}
+
 .cv-highlights {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
