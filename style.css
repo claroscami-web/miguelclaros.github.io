@@ -3216,6 +3216,14 @@ affected. Main changes:
         hyphens: auto;
     }
 
+    /* No blur behind the summary on phones: the card is very tall here and
+       the blur layer used too much memory on iPhone (Safari crashed when
+       scrolling down). It was invisible anyway on the white background. */
+    .summary-card {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
     .cv-download {
         justify-content: center;
     }
@@ -3430,5 +3438,15 @@ affected. Main changes:
         font-size: 0.9rem;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
         z-index: 1100;
+    }
+
+    /* Only the card of the tapped milestone exists on screen
+       (30 hidden fixed cards also cost memory on iPhone) */
+    .timeline-card {
+        display: none;
+    }
+
+    .timeline-item:hover .timeline-card {
+        display: block;
     }
 }
