@@ -614,3 +614,42 @@ cvEvents.forEach(event => {
     //Add this timeline event to the cv-timeline container.
     timeline.appendChild(item);
 });
+
+/*
+Vertical timeline on phones (style.css, section 15.10): when two icons on
+the same side are so close that they would cover each other, the second one
+is moved further out from the bar (class stagger-1, or stagger-2 if a third
+one is also close). These classes only have styles on phones, so the desktop
+timeline does not change.
+*/
+const MOBILE_TIMELINE_HEIGHT = 1100;   // px; must match #cv-timeline height in section 15.10 of style.css
+const MAX_ICON_OVERLAP = 6;            // px two icons may overlap without being moved
+
+function mobileIconHeight(item) {
+    const icon = item.querySelector(".timeline-event-icon");
+    if (!icon) return 0;
+    return parseFloat(icon.style.width) >= 80 ? 52 : 36;   // same sizes as in style.css
+}
+
+["top", "bottom"].forEach(side => {
+
+    const items = [...timeline.querySelectorAll(`.timeline-item.${side}`)]
+        .filter(item => mobileIconHeight(item) > 0)
+        .map(item => ({
+            item,
+            y: parseFloat(item.style.getPropertyValue("--pos")) * MOBILE_TIMELINE_HEIGHT / 100,
+            h: mobileIconHeight(item)
+        }))
+        .sort((a, b) => a.y - b.y);
+
+    const placed = [[], [], []];   // icons already placed at each distance from the bar
+
+    items.forEach(entry => {
+        let level = placed.findIndex(row => row.every(other =>
+            Math.abs(entry.y - other.y) >= (entry.h + other.h) / 2 - MAX_ICON_OVERLAP
+        ));
+        if (level === -1) level = placed.length - 1;
+        placed[level].push(entry);
+        if (level > 0) entry.item.classList.add(`stagger-${level}`);
+    });
+});
